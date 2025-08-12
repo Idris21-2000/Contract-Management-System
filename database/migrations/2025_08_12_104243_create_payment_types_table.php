@@ -11,10 +11,9 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('costs', function (Blueprint $table) {
+        Schema::create('payment_types', function (Blueprint $table) {
             $table->id();
-            $table->bigInteger('Amount');
-            $table->foreignId('cost_currency_id')->constrained('cost_currencies');
+            $table->string('type_name');
             $table->timestamps();
         });
     }
@@ -24,6 +23,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('costs');
+        Schema::dropIfExists('payment_types');
     }
 };
