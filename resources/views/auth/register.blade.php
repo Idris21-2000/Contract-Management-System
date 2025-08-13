@@ -22,7 +22,7 @@
             <label for="role_id" class="block text-sm font-medium text-gray-700">Role</label>
             <select name="role_id" id="role_id" class="block mt-1 w-full">
                 @foreach ($roles as $role)
-                    <option value="">{{ $role->role }}</option>
+                    <option value="{{ $role->id }}">{{ $role->role }}</option>
                 @endforeach
             </select>
         </div>
