@@ -16,13 +16,13 @@ return new class extends Migration
             $table->string('contract_id')->unique();
             $table->string('counterpart_name');
             $table->text('counsel_comment');
-            $table->string('attach_file_path');
+            $table->string('attach_file_path')->nullable();
             $table->foreignId('contract_type_id')->constrained('contract_types');
             $table->foreignId('assignees_id')->constrained('users');
             $table->integer('period_of_contract');
             $table->date('signing_date');
             $table->date('renewal_date');
-            $table->foreignId('cost_id')->constrained('costs');
+            $table->string('cost');
             $table->foreignId('payment_mode_id')->constrained('payment_modes');
             $table->foreignId('payment_type_id')->constrained('payment_types');
             $table->enum('implementation_mode', ['Support On Call', 'Onsite IT Support']);

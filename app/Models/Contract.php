@@ -16,10 +16,31 @@ class Contract extends Model
         'period_of_contract',
         'signing_date',
         'renewal_date',
-        'cost_id',
+        'cost',
         'payment_mode_id',
         'payment_type_id',
         'implementation_mode',
         'status'
     ];
+
+    //Eloquent relationships
+    public function contractType()
+    {
+        return $this->belongsTo(ContractType::class, 'contract_type_id');
+    }
+
+    public function assignee()
+    {
+        return $this->belongsTo(User::class, 'assignees_id');
+    }
+
+    public function paymentMode()
+    {
+        return $this->belongsTo(PaymentMode::class, 'payment_mode_id');
+    }
+
+    public function paymentType()
+    {
+        return $this->belongsTo(PaymentType::class, 'payment_type_id');
+    }
 }

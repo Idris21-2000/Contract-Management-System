@@ -47,4 +47,10 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
+
+    //Eloquent relationship to contract model
+    public function assignedContracts()
+    {
+        return $this->hasMany(Contract::class, 'assignees_id');
+    }
 }
