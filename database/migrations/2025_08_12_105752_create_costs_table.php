@@ -13,8 +13,8 @@ return new class extends Migration
     {
         Schema::create('costs', function (Blueprint $table) {
             $table->id();
-            $table->bigInteger('Amount');
-            $table->foreignId('cost_currency_id')->constrained('cost_currencies');
+            $table->decimal('amount', 16, 3);
+            $table->string('country_currency');
             $table->timestamps();
         });
     }
